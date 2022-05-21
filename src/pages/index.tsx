@@ -1,75 +1,60 @@
-import Head from 'next/head';
-import Image from 'next/image';
+import Head from "next/head";
+import styled from "styled-components";
+import Link from "next/link";
 
-import styles from '@/styles/Home.module.css';
+const Div = styled.div`
+    height: 70vh;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 16px;
+    text-align: center;
 
-export default function Home() {
-  return (
-    <div className={styles.container}>
-      <Head>
-        <title>TypeScript starter for Next.js</title>
-        <meta
-          name="description"
-          content="TypeScript starter for Next.js that includes all you need to build amazing apps"
-        />
-        <link rel="icon" href="/favicon.ico" />
-      </Head>
+    .title {
+        font-size: 64px;
+        font-weight: 600;
+        text-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
 
-      <main className={styles.main}>
-        <h1 className={styles.title}>
-          Welcome to <a href="https://nextjs.org">Next.js!</a>
-        </h1>
+        @media (max-width: 640px) {
+            font-size: 56px;
+        }
+    }
 
-        <p className={styles.description}>
-          Get started by editing{` `}
-          <code className={styles.code}>pages/index.tsx</code>
-        </p>
+    .text {
+        margin-top: 30px;
+    }
 
-        <p className={styles.description}>This is not an official starter!</p>
+    a {
+        display: block;
+        margin-top: 40px;
+        padding: 14px 42px;
+        text-decoration: none;
+        font-weight: 500;
+        border: none;
+        border-radius: 10px;
+        background: #8e2de2;
+        background: -webkit-linear-gradient(to right, #8e2de2, #4a00e0);
+        background: linear-gradient(to right, #8e2de2, #4a00e0);
+        color: white;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    }
+`;
 
-        <div className={styles.grid}>
-          <a href="https://nextjs.org/docs" className={styles.card}>
-            <h2>Documentation &rarr;</h2>
-            <p>Find in-depth information about Next.js features and API.</p>
-          </a>
+const Home = () => {
+    return (
+        <>
+            <Head>
+                <title>Online Shopping for Men - Tiptop</title>
+            </Head>
+            <Div>
+                <p className="title">Wear better, look better.</p>
+                <p className="text">Don't you just love being in apparel?</p>
+                <Link href="/collections">Shop Now</Link>
+            </Div>
+        </>
+    );
+};
 
-          <a href="https://nextjs.org/learn" className={styles.card}>
-            <h2>Learn &rarr;</h2>
-            <p>Learn about Next.js in an interactive course with quizzes!</p>
-          </a>
-
-          <a
-            href="https://github.com/vercel/next.js/tree/master/examples"
-            className={styles.card}
-          >
-            <h2>Examples &rarr;</h2>
-            <p>Discover and deploy boilerplate example Next.js projects.</p>
-          </a>
-
-          <a
-            href="https://vercel.com/new?utm_source=typescript-nextjs-starter"
-            className={styles.card}
-          >
-            <h2>Deploy &rarr;</h2>
-            <p>
-              Instantly deploy your Next.js site to a public URL with Vercel.
-            </p>
-          </a>
-        </div>
-      </main>
-
-      <footer className={styles.footer}>
-        <a
-          href="https://vercel.com?utm_source=typescript-nextjs-starter"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Powered by{` `}
-          <span className={styles.logo}>
-            <Image src="/vercel.svg" alt="Vercel Logo" width={72} height={16} />
-          </span>
-        </a>
-      </footer>
-    </div>
-  );
-}
+export default Home;
